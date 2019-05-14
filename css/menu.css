@@ -1,0 +1,124 @@
+/* ========================================
+  menu.css
+======================================== */
+
+/* ----------------------------------------
+  当cssは、レスポンシブでwidthが1024px未満に
+  なった際に適応します。
+---------------------------------------- */
+
+/* ドロワーメニュー */
+.u-overlay {
+  display: block;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 0;
+  height: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: opacity .5s;
+  content: "";
+}
+
+.u-overlay.u-menuOpen {
+  position: fixed;
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.l-base.u-menuOpen {
+  transform: translateX(-250px);
+  height: 100%;
+}
+
+.l-menuBtn {
+  display: inline-block;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  z-index: 100;
+  width: 36px;
+  height: 28px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.u-menuLine {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  box-shadow: 1px 1px 1px #333;
+  box-sizing: border-box;
+  background-color: #FFF;
+  transition: all .5s;
+}
+
+.u-menuLine.u-menuActive {
+  background-color: #fff;
+}
+
+.u-menuLine:nth-of-type(1) {
+  top: 0;
+}
+
+.u-menuLine.u-menuActive:nth-of-type(1) {
+  transform: translateY(12px) rotate(-45deg);
+}
+
+.u-menuLine:nth-of-type(2) {
+  top: 12px;
+}
+
+.u-menuLine.u-menuActive:nth-of-type(2) {
+  opacity: 0;
+}
+
+.u-menuLine:nth-of-type(3) {
+  bottom: 0;
+}
+
+.u-menuLine.u-menuActive:nth-of-type(3) {
+  transform: translateY(-12px) rotate(45deg);
+}
+
+.l-topMenu {
+  position: fixed;
+  top: 0;
+  right: -250px;
+  z-index: 10;
+  padding-top: 100px;
+  width: 250px;
+  height: 100%;
+  background-color: #111;
+}
+
+.l-topMenu > li {
+  display: inline;
+  width: 250px;
+  height: 40px;
+  text-align: center;
+}
+
+.l-topMenu > li:first-child {
+  color: #fff;
+  font-weight: normal;
+  font-size: 22px;
+}
+
+.l-topMenu > li:first-child::after {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 16px;
+  vertical-align: middle;
+  content: attr(data-subtitle);
+}
+
+.l-header__ttl.u-menuOpen {
+  opacity: 0;
+  transition: all .5s;
+}
