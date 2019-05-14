@@ -12,21 +12,19 @@ $(function() {
   */
   (function() {
     const wh = $(window).height();
-    const $li = $('.p-liking__anime li');
-    // $li.each(function(index) {
-    //   if(index !== 0) {
-    //     $(this).css('display' , 'none');
-    //   }
-    // });
-    var getFirstLeft = $li.eq(0).position().left;
-    $li.each(function(index) {
-      if(index !== 0) {
-        var getPosition = $(this).position().left;
-        var sum = getFirstLeft - getPosition;
-        $(this).css('transform' , 'translateX(' + sum + 'px)');
-      }
-    });
     $('.c-loading , .c-loading__bg').height(wh).css('display' , 'block');
+    var path = location.pathname;
+    if(document.URL.match('/liking')) {
+      const $li = $('.p-liking__anime li');
+      var getFirstLeft = $li.eq(0).position().left;
+      $li.each(function(index) {
+        if(index !== 0) {
+          var getPosition = $(this).position().left;
+          var sum = getFirstLeft - getPosition;
+          $(this).css('transform' , 'translateX(' + sum + 'px)');
+        }
+      });
+    }
   }());
 
   /**
@@ -149,8 +147,6 @@ $(function() {
       $li.each(function(index) {
         if(index !== 0) {
           $(this).css({transform : 'translateX(0)'});
-          // $(this).css('display' , 'block');
-          // $(this).show('fast');
         }
       });
       $('.p-liking__anime').data('flg' , 'on');
