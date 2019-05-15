@@ -13,18 +13,6 @@ $(function() {
   (function() {
     const wh = $(window).height();
     $('.c-loading , .c-loading__bg').height(wh).css('display' , 'block');
-    var path = location.pathname;
-    if(document.URL.match('/liking')) {
-      const $li = $('.p-liking__anime li');
-      var getFirstLeft = $li.eq(0).position().left;
-      $li.each(function(index) {
-        if(index !== 0) {
-          var getPosition = $(this).position().left;
-          var sum = getFirstLeft - getPosition;
-          $(this).css('transform' , 'translateX(' + sum + 'px)');
-        }
-      });
-    }
   }());
 
   /**
@@ -313,4 +301,16 @@ $(window).on('load' , function() {
   $('.l-header__ttl').delay(800).queue(function() {
     $(this).addClass('u-fadeIn');
   });
+  var path = location.pathname;
+  if(document.URL.match('/liking')) {
+    const $li = $('.p-liking__anime li');
+    var getFirstLeft = $li.eq(0).position().left;
+    $li.each(function(index) {
+      if(index !== 0) {
+        var getPosition = $(this).position().left;
+        var sum = getFirstLeft - getPosition;
+        $(this).css('transform' , 'translateX(' + sum + 'px)');
+      }
+    });
+  }
 });
