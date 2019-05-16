@@ -35,6 +35,10 @@
   background-color: transparent;
 }
 
+.u-clearBg {
+  background-color: transparent;
+}
+
 .p-trigger__bg:before {
   display: block;
   position: fixed;
