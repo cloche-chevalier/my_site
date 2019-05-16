@@ -31,10 +31,7 @@
 /* ----------------------------------------
   trigger.html
 ---------------------------------------- */
-.p-trigger__bg {
-  background-color: transparent;
-}
-
+.p-trigger__bg,
 .u-clearBg {
   background-color: transparent;
 }
@@ -44,9 +41,9 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  z-index: -1;
   background: url(../img/trigger_bg.jpg) no-repeat;
   background-size: cover;
   background-position: center center;
@@ -124,9 +121,18 @@
 }
 
 .p-profile__flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
   flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   margin-bottom: 20px;
 }
@@ -145,8 +151,8 @@
 
 .p-profile__faceImg {
   width: 80%;
-  border-radius: 20px;
-  margin-bottom: 10px;
+  border-radius: 20px 20px 0 0;
+  vertical-align: bottom;
 }
 
 @media screen and (min-width: 768px) {
@@ -156,30 +162,33 @@
 }
 
 .p-profile__name {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  border-radius: 0 0 20px 20px;
+  color: #FFF;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 24px;
-  width: 80%;
-  margin: 0 auto;
+  background-color: #555;
 }
 
 @media screen and (min-width: 768px) {
   .p-profile__name {
+    width: 100%;
     font-size: 20px;
     font-size: 2.0rem;
     line-height: 36px;
-    width: 100%;
   }
 }
 
 .p-profile__name:before {
   display: block;
-  content: attr(data-title);
   font-size: 20px;
   font-size: 2.0rem;
   line-height: 24px;
   background-color: #555;
-  color: #FFF;
+  content: attr(data-title);
 }
 
 @media screen and (min-width: 768px) {
@@ -191,27 +200,27 @@
 }
 
 .p-profile__name:after {
-  display: block;
-  content: attr(data-after);
+  display: inline-block;
   font-size: 12px;
   font-size: 1.2rem;
   line-height: 24px;
+  content: attr(data-after);
 }
 
 .p-profile__txt {
+  width: 80%;
+  margin-top: 20px;
   font-size: 16px;
   font-size: 1.6rem;
   line-height: 24px;
-  width: 80%;
-  margin-top: 10px;
 }
 
 @media screen and (min-width: 768px) {
   .p-profile__txt {
+    margin: 0 0 0 20px;
     font-size: 20px;
     font-size: 2.0rem;
     line-height: 36px;
-    margin: 0 0 0 20px;
   }
 }
 
@@ -226,8 +235,8 @@
 .p-profile__txt > li:nth-of-type(4n+1),
 .p-profile__txt > li:nth-of-type(4n+2) {
   border-bottom: 1px solid #FFF;
-  background-color: #555;
   color: #FFF;
+  background-color: #555;
 }
 
 .p-profile__txt > li:nth-of-type(4n+3) {
@@ -235,12 +244,12 @@
 }
 
 .p-profile__chronicle {
-  background-color: #555;
-  color: #FFF;
-  padding: 20px;
-  border-radius: 20px;
   width: 80%;
   margin: 0 auto;
+  padding: 20px;
+  border-radius: 20px;
+  color: #FFF;
+  background-color: #555;
 }
 
 @media screen and (min-width: 768px) {
@@ -636,8 +645,6 @@
 }
 
 .p-liking__manga {
-  -webkit-transition: .5s;
-  transition: .5s;
   width: 80%;
   margin: 20px auto 0;
 }
@@ -650,10 +657,10 @@
 
 .p-liking__manga > li {
   display: none;
-  -webkit-transition: all .3s;
-  transition: all .3s;
   position: relative;
   background-color: #FFF;
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .p-liking__manga > li:first-of-type {
@@ -661,26 +668,24 @@
 }
 
 .p-liking__manga > li:before {
-  position: absolute;
   display: none;
-  content: attr(data-txt);
-  color: #FFF;
-  background-color: #000;
+  position: absolute;
+  z-index: 2;
   width: 0;
   padding: 10px 0;
-  text-align: center;
+  color: #FFF;
   font-size: 16px;
   font-size: 1.6rem;
+  text-align: center;
+  background-color: #000;
+  content: attr(data-txt);
   -webkit-transition: all .3s;
   transition: all .3s;
-  z-index: 2;
 }
 
 .p-liking__manga > li:hover:before {
   display: block;
   width: 100%;
-  -webkit-transition: all .3s;
-  transition: all .3s;
 }
 
 .p-liking__manga > li:hover:after {
@@ -688,13 +693,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  -webkit-transition: all .3s;
-  transition: all .3s;
-  content: "";
+  z-index: 1;
   width: 100%;
   height: 100%;
   background-color: rgba(255, 255, 255, 0.4);
-  z-index: 1;
+  content: "";
+  -webkit-transition: all .3s;
+  transition: all .3s;
 }
 
 .p-liking__manga__img {
