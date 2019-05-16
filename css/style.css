@@ -53,19 +53,19 @@ iframe[src*="https://instawidget.net/embed"] {
 
 @media screen and (min-width: 768px) {
   .l-wrapper {
-    width: 768px;
+    width: 728px;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .l-wrapper {
-    width: 1024px;
+    width: 984px;
   }
 }
 
 @media screen and (min-width: 1200px) {
   .l-wrapper {
-    width: 1200px;
+    width: 1160px;
   }
 }
 
@@ -882,8 +882,15 @@ iframe[src*="https://instawidget.net/embed"] {
 
 .l-footer__copyLight {
   margin: 60px auto 0;
-  font-size: 18px;
-  font-size: 1.8rem;
+  font-size: 12px;
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .l-footer__copyLight {
+    font-size: 18px;
+    font-size: 1.8rem;
+  }
 }
 
 .u-txtLefting {
