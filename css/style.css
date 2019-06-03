@@ -341,15 +341,14 @@ iframe[src*="https://instawidget.net/embed"] {
 
 @media screen and (min-width: 1024px) {
   .l-topMenu {
-    position: absolute;
-    top: 0;
     right: auto;
     left: 0;
-    width: auto;
+    width: 100%;
     height: auto;
     padding: 0 20px 0 0;
     z-index: 1001;
-    background-color: inherit;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.8);
   }
 }
 
@@ -572,6 +571,7 @@ iframe[src*="https://instawidget.net/embed"] {
   display: flex;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
+  flex-direction: column;
   justify-content: space-between;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -579,13 +579,32 @@ iframe[src*="https://instawidget.net/embed"] {
   margin-bottom: 40px;
 }
 
+@media screen and (min-width: 1024px) {
+  .p-topPage__profile {
+    flex-direction: row;
+  }
+}
+
 .p-topPage__profile__img {
-  width: 50%;
-  margin-right: 20px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1024px) {
+  .p-topPage__profile__img {
+    width: 50%;
+    margin: 0 20px 0 0;
+  }
 }
 
 .p-topPage__profile__txt {
-  width: 50%;
+  width: 100%;
+}
+
+@media screen and (min-width: 1024px) {
+  .p-topPage__profile__txt {
+    width: 50%;
+  }
 }
 
 /*
@@ -696,6 +715,10 @@ iframe[src*="https://instawidget.net/embed"] {
 }
 
 .p-mapTxt {
+  margin: 0 20px 30px;
+}
+
+.p-mapTxt:last-of-type {
   margin: 0 20px;
 }
 
@@ -739,7 +762,7 @@ iframe[src*="https://instawidget.net/embed"] {
 }
 
 .p-sns__contents {
-  width: 100%;
+  width: 90%;
   margin-bottom: 30px;
 }
 

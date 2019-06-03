@@ -124,24 +124,6 @@ $(function() {
   }
 
   /**
-  * likingページのanimeの処理。クリックしたら下にある画像が定位置に行く
-  *
-  */
-  function slideInImg() {
-    const $li = $('.p-liking__anime li');
-    if($('.p-liking__anime').data('flg') == 'on') {
-      return
-    } else {
-      $li.each(function(index) {
-        if(index !== 0) {
-          $(this).css({transform : 'translateX(0)'});
-        }
-      });
-      $('.p-liking__anime').data('flg' , 'on');
-    }
-  }
-
-  /**
   * likingページのliquorの処理。クリックしたら画像を入れ替える
   *
   * @this {クリックした$('.p-liking__liquor li')のindex}
@@ -222,7 +204,7 @@ $(function() {
   *
   * @event
   */
-  $('.l-pageTop , .l-footer__topBtn , .u-nowPageTop').on('click' , function() {
+  $('.l-pageTop , .l-footer__topBtn , .l-topMenu__nowPage , .u-nowPageTop').on('click' , function() {
     goBackTop();
   });
 
@@ -263,16 +245,7 @@ $(function() {
   });
 
   /**
-  * ikingページのanimeのイベント
-  *
-  *@event
-  */
-  $('.p-liking__anime li').on('click' , function() {
-    slideInImg();
-  });
-
-  /**
-  * ikingページのliquorのイベント
+  * likingページのliquorのイベント
   *
   *@event
   */
@@ -281,7 +254,7 @@ $(function() {
   });
 
   /**
-  * ikingページのmangaのイベント
+  * likingページのmangaのイベント
   *
   *@event
   */
@@ -301,16 +274,4 @@ $(window).on('load' , function() {
   $('.l-header__ttl').delay(800).queue(function() {
     $(this).addClass('u-fadeIn');
   });
-  var path = location.pathname;
-  if(document.URL.match('/liking')) {
-    const $li = $('.p-liking__anime li');
-    var getFirstLeft = $li.eq(0).position().left;
-    $li.each(function(index) {
-      if(index !== 0) {
-        var getPosition = $(this).position().left;
-        var sum = getFirstLeft - getPosition;
-        $(this).css('transform' , 'translateX(' + sum + 'px)');
-      }
-    });
-  }
 });
